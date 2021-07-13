@@ -10,7 +10,6 @@ POST_URL = <post_url>
 USERNAME = <usrname>
 PASSWORD = <pw>
 handles = open("handles.txt").read().split('\n') # opens handles.txt and reads all the names
-count = 1
 
 driver = webdriver.Chrome(DRIVER_PATH)
 driver.get(LOGIN_URL)
@@ -30,9 +29,6 @@ driver.get(POST_URL)
 time.sleep(5)
 
 for name in handles:
-    #if count % 40 == 0:
-    #    time.sleep(3600)
-    #elif count % 15 != 0:
     comment = '//*[@id="react-root"]/section/main/div/div[1]/article/div[3]/section[3]/div/form/textarea'
     commentArea = driver.find_element_by_xpath(comment)
     commentArea.click()
@@ -45,10 +41,6 @@ for name in handles:
 
     post = '//*[@id="react-root"]/section/main/div/div/article/div[3]/section[3]/div/form/button[2]'
     driver.find_element_by_xpath(post).click()
-        #count+=1 
+
     print(name)
     time.sleep(90)
-    #    time.sleep(random.randrange(10,20))
-    #else:
-    #    time.sleep(random.randrange(300,600))
-    #    count+=1
